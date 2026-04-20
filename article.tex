@@ -1,0 +1,559 @@
+% ====== PAPER INFORMATION ======
+% CONFERENCE NAME: 
+% CONFERENCE PAPER: 
+
+% Number of Pages: 
+% Regular: Not exceed 06 pages
+% Format: ACM-formatted double-column pages, including figures, tables, and references
+
+% === Key Dates:
+    % Original Paper Submission Deadline: February 1, 2026
+    % Acceptance Notification: March 20, 2026
+    % Camera Ready Papers Due: 
+    % Conference Dates: December June 20, 2026
+
+
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs, multirow}
+\usepackage{xcolor,colortbl}
+\usepackage{soul}
+\usepackage{changepage,threeparttable}
+
+
+% NEW PERSONALIZED PACKAGES AND COMMANDS
+% ##############################
+\usepackage{booktabs} % For formal tables
+\usepackage{xcolor,colortbl} % for cell colors
+\usepackage{changepage,threeparttable} % for wide tables
+\usepackage{float}
+% \usepackage{hyperref} % For URL's references
+\usepackage[bookmarks=false, hidelinks]{hyperref}
+\usepackage{nohyperref}
+\usepackage{subcaption}
+\usepackage{minted}
+\usepackage[utf8]{inputenc}
+\usepackage{cite}
+\usepackage{longtable}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+
+% TEXT REVIEW COMMANDS
+% ##############################
+\usepackage{pifont} % http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+% \newcommand{\rvi}[1]{{\color{cyan}{#1}}} %included text first round revision
+\newcommand{\rvi}[1]{{\color{black}{#1}}} %included text #original blue
+
+\newcommand{\rvII}[1]{{\color{green}{#1}}} %included text second round revision
+% \newcommand{\rvII}[1]{{\color{black}{#1}}} %included text
+
+\newcommand{\rve}[1]{{\color{red}{#1}}} % excluded text
+
+
+
+
+% TICKZ FIGURES
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\tikzset{
+  >={Stealth[length=2.2mm,width=2.2mm]},
+  box/.style={draw, rounded corners=2pt, thick, inner sep=6pt, align=center},
+  title/.style={font=\bfseries\small},
+  layer/.style={box, fill=gray!6, draw=gray!70},
+  edgebox/.style={box, fill=purple!6, draw=purple!60},
+  agentbox/.style={box, fill=orange!8, draw=orange!70!black},
+  statebox/.style={box, fill=blue!6, draw=blue!55},
+  envbox/.style={box, fill=teal!6, draw=teal!60!black},
+  metricbox/.style={box, fill=teal!3, draw=teal!60!black},
+  thinarrow/.style={-Stealth, very thick},
+  dashedbox/.style={box, dashed, draw=gray!70, fill=gray!3},
+}
+
+
+
+
+% WATERMARK PERSONALIZATION
+% \usepackage{draftwatermark}
+% Configuração da marca d'água
+% \SetWatermarkText{DRAFT} % Texto da marca d'água
+% \SetWatermarkScale{1} % Tamanho da marca d'água
+% \SetWatermarkColor[gray]{0.9} % Cor da marca d'água (0 = preto, 1 = branco)
+
+
+\begin{document}
+
+\title{Characterizing Fairness Trade-offs in Multi-Client Adaptive Streaming \\
+% {\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
+% should not be used}
+% \thanks{Identify applicable funding agency here. If none, delete this.}
+}
+
+% \author{
+% \IEEEauthorblockN{1\textsuperscript{st} André Luiz de Moraes}
+% \IEEEauthorblockA{\textit{Computer Science} \\
+% \textit{\small Federal University of Santa Catarina (UFSC)} \\
+% Florianópolis, Brazil \\
+% chameoandre@gmail.com}
+% \and
+% \IEEEauthorblockN{2\textsuperscript{nd} Douglas D. J. de Macedo}
+% \IEEEauthorblockA{\textit{Dept. of Information Science (CIN)} \\
+% \textit{\small Federal University of Santa Catarina (UFSC)} \\
+% Florianópolis, Brazil \\
+% douglas.macedo@ufsc.br}
+
+% 
+% \and
+% \IEEEauthorblockN{3\textsuperscript{rd} Antonio Brogi}
+% \IEEEauthorblockA{\textit{Dept. of Computer Science} \\
+% \textit{University of Pisa (UNIPI)} \\
+% Pisa, Italy \\
+% antonio.brogi@unipi.it}
+% \and
+% \IEEEauthorblockN{4\textsuperscript{th} Luiz Fernando Bittencourt}
+% \IEEEauthorblockA{\textit{Institute of Computing} \\
+% \textit{University of Campinas (UNICAMP)} \\
+% Campinas, Brazil \\
+% bittencourt@ic.unicamp.br}
+
+
+
+
+% \and
+% \IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
+% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+% \textit{name of organization (of Aff.)}\\
+% City, Country \\
+% email address or ORCID}
+
+% \and
+% \IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
+% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+% \textit{name of organization (of Aff.)}\\
+% City, Country \\
+% email address or ORCID}
+
+% \and
+% \IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
+% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+% \textit{name of organization (of Aff.)}\\
+% City, Country \\
+% email address or ORCID}
+% }
+
+\maketitle
+
+% \begin{abstract}
+
+
+% % ELEMENTS TO INCLUDE IN ABSTRACT
+
+% % MAIN OBJECTIVE
+% % Explore Fairness distribution in Adaptive Video streaming using a Reinforcement Learning Scheme exploring Edge computing capabilities.
+
+% % Video Streaming growing and Lacks (Content providers dificulties, 
+% % Importance of Machine Learning for Video Streaming Issues
+% % Edge computing oportunities
+% % Lack oportunities: Fairness between Bootleneck bandwidth clients
+% % How different Fairness Measurement can benefit the choices of an Adaptive Streaming Session session.
+% % Implementation objectives and structuration
+
+% Video streaming represents the dominant share of today’s Internet traffic, making the efficiency and fairness of Adaptive Bitrate (ABR) algorithms increasingly critical. Conventional strategies largely focus on optimizing individual Quality of Experience (QoE) metrics such as startup delay, rebuffering, or video quality. However, these approaches frequently overlook fairness among users that compete for constrained and fluctuating network resources, especially in edge-assisted environments where bandwidth is highly variable.
+
+% This work introduces a fairness-aware Reinforcement Learning (RL) approach for ABR decision-making, designed to leverage edge computing capabilities for timely and equitable resource allocation. We develop a multi-metric evaluation framework that incorporates both QoE and fairness dimensions. In addition to conventional QoE indicators (throughput, latency, rebuffering, and quality variations), we employ four complementary fairness metrics as decision variables: Temporal Fairness in QoE (TF-QoE), QoE Fairness Score (QFS), Bitrate Fairness Index (BFI), and Stability-Aware Fairness (SAF). 
+
+% To validate our approach, we implemented a Docker-based simulation framework integrating Selenium for playback automation and Mahimahi for network emulation. Six ABR strategies were evaluated under controlled and identical network conditions: three heuristic-based baselines and three RL-based variants, including our proposed \textit{PENSIEVE-FAIRNESS} model. 
+
+% Experimental results demonstrate that \textit{PENSIEVE-FAIRNESS} consistently outperforms heuristic and baseline RL methods across all fairness metrics, while maintaining or enhancing playback quality. These findings highlight the importance of fairness-driven learning for adaptive streaming and provide practical insights for the design of next-generation edge-assisted video delivery systems that are not only efficient, but also equitable in multi-user scenarios.
+
+% \end{abstract}
+
+
+
+\begin{abstract}
+    This paper presents an observational and multi-metric analysis of fairness
+trade-offs in multi-client adaptive streaming systems. Building upon previously
+collected experimental data, the study examines how different ABR strategies
+manifest across complementary fairness dimensions, including temporal QoE
+fairness and bitrate allocation fairness, as well as their interaction with
+playback stability indicators. The analysis focuses on interpreting how
+adaptation behavior and network variability influence fairness outcomes under
+shared conditions. The results reveal that fairness metrics capture distinct
+and sometimes conflicting aspects of user experience, and that improvements
+observed under one fairness dimension may coincide with degradation under
+others. Highly variable network conditions further amplify these conflicts,
+exposing trade-offs between fairness and QoE stability. These findings highlight
+the limitations of single-metric fairness evaluation and underscore the
+importance of multi-metric analysis when assessing adaptive streaming behavior
+in realistic multi-client environments.
+
+\end{abstract}
+
+
+
+% The increasing demand for adaptive video streaming presents significant challenges for content providers, particularly in ensuring high Quality of Experience (QoE) and fair bandwidth distribution among users with varying network conditions. Traditional Adaptive Bitrate (ABR) algorithms often face difficulties efficiently allocating resources under fluctuating network environments, leading to unfair bitrate allocation and degraded user experience, especially for bottlenecked clients. This work proposes a Reinforcement Learning (RL)-based approach that leverages Edge Computing capabilities to optimize QoE and fairness in adaptive streaming jointly. Our framework is deployed in a Docker-based infrastructure and tested using real-world network traces to simulate various network congestion levels. The experiments compare heuristic-based ABR methods with our RL-based approach, evaluating key QoE metrics such as average throughput, buffering time, and quality variations. Additionally, we assess fairness using Jain’s Fairness Index to measure how well the system distributes quality among users with different bandwidth constraints. Our results demonstrate that the RL-based approach significantly enhances fairness while improving overall QoE, particularly in highly variable and degraded network conditions ensuring smoother quality transitions and reduced playback disruptions. These findings highlight the potential of RL for advancing adaptive streaming strategies in Edge Computing environments, addressing key limitations of traditional ABR methods.
+
+% \end{abstract}
+
+\begin{IEEEkeywords}
+Adaptive Bitrate Streaming, Fairness Trade-offs, Multi-Client Video Streaming, QoE Evaluation, Network Variability
+\end{IEEEkeywords}
+
+
+
+% ######################
+\section{Introduction} \label{sec: Introduction}
+    % ######################
+    % SECTION: Introduction
+    %
+    % OBJECTIVES OF THIS SECTION:
+    % - Motivate the growing relevance of adaptive video streaming in multi-client and edge-assisted environments.
+    % - Highlight the complexity of ABR decision-making under network variability and user heterogeneity.
+    % - Introduce fairness as a critical but multi-dimensional evaluation aspect in adaptive streaming systems.
+    % - Emphasize that different fairness metrics capture distinct dimensions and may lead to conflicting outcomes.
+    % - Identify the lack of explicit analysis of trade-offs between fairness, QoE stability, and adaptation behavior.
+    % - Position the paper as an observational and analytical study, rather than a proposal of new algorithms or optimization frameworks.
+    %
+    % SCOPE AND POSITIONING:
+    % - This paper focuses on experimental analysis and interpretation of fairness trade-offs.
+    % - No new ABR algorithm, framework, or optimization method is proposed.
+    % - All analyses are based on previously collected experimental data.
+    %
+    % CHANGES RELATIVE TO THE CCGRID VERSION:
+    % - Shifted the narrative focus from optimization and framework design to trade-off analysis and system behavior.
+    % - Removed claims related to performance improvement or algorithmic superiority.
+    % - Reframed fairness from a design goal to an analytical dimension with inherent conflicts.
+    % - Updated the contribution statements to emphasize insights, observations, and implications for ABR design.
+    % - Aligned the introduction with the analytical scope and page constraints of IEEE ISCC.
+    %
+    % ######################
+
+    The continuous growth of video traffic has placed adaptive video streaming among the most demanding services in modern communication networks. Industry reports consistently indicate that video applications dominate global data consumption, driven by heterogeneous devices, fluctuating wireless conditions, and increasing quality expectations~\cite{forecast2019cisco}. To cope with these challenges, edge and fog computing paradigms have emerged as key architectural enablers, bringing computation and decision-making closer to end users in order to reduce latency and improve service responsiveness~\cite{shi2016edge}. Dynamic Adaptive Streaming over HTTP (DASH) has become the de facto standard for Internet video delivery, allowing clients to dynamically select video representations according to perceived network conditions and playback state~\cite{stockhammer2011dynamic}. Over the years, a wide range of adaptive bitrate (ABR) algorithms have been proposed, including control-theoretic and heuristic-based approaches that aim to balance throughput utilization, buffer stability, and playback smoothness~\cite{jiang2012improving,yin2015control,spiteri2020bola}. These mechanisms primarily focus on optimizing Quality of Experience (QoE) at the individual client level, relying on metrics such as bitrate, rebuffering events, and quality switches~\cite{barman2019qoe,zhao2016qoe}. In multi-client scenarios, however, independent adaptation decisions may lead to significant disparities among users sharing the same network resources. Such behavior has motivated the introduction of fairness-aware evaluation criteria, with Jain’s Fairness Index serving as a foundational metric for quantifying resource distribution equity~\cite{jain1984quantitative}. More recent studies have extended this concept toward QoE-aware fairness definitions, explicitly accounting for perceived user experience rather than raw resource allocation~\cite{hossfeld2017definition,hossfeld2018new}. Despite these advances, fairness remains a complex and multi-dimensional concept, particularly under heterogeneous and dynamic network conditions~\cite{akhtar2020fairness}. While data-driven approaches, including reinforcement learning, have expanded the design space of ABR algorithms~\cite{mao2017neural}, existing studies predominantly evaluate fairness using single metrics or aggregated indicators. As a result, the interaction between different fairness dimensions and their relationship with QoE stability and adaptation behavior in multi-client environments remain insufficiently understood. In this work, we investigate fairness trade-offs in multi-client adaptive streaming systems through an observational and multi-metric analysis of previously collected experimental data. Building upon prior experimental studies on adaptive streaming and fairness-aware QoE evaluation conducted by the authors~\cite{de2025fairness,de2025joint}, this paper characterizes how different ABR behaviors manifest across multiple fairness dimensions and QoE stability indicators under shared and heterogeneous network conditions. 
+
+    This paper makes three main contributions. First, it provides a structured multi-metric characterization of fairness in multi-client adaptive streaming, jointly analyzing temporal, bitrate, and stability-aware fairness. Second, it identifies structural trade-offs between fairness dimensions and QoE stability. Third, it analyzes how network variability amplifies latent fairness conflicts that remain obscured under stable conditions. The remainder of the paper is organized as follows. Section \ref{sec:Background} provides background on adaptive bitrate streaming and fairness concepts. Section~\ref{sec:Related Works} reviews related literature. Section~\ref{sec:tradeoff_methodology} describes the trade-off analysis methodology. Section~\ref{sec:results_discussion} presents and discusses the analytical results. Finally, Section~\ref{sec:Conclusion and Future Work} concludes the paper.
+
+
+    % The remainder of the paper is organized as follows: Section~\ref{sec:Background} reviews background concepts; Section~\ref{sec:Related Works} surveys related works; Section~\ref{sec:experimental-evaluation} describes our methodology; Section~\ref{sec:Results} presents results; Section~\ref{sec:Discussion} analyzes findings; and Section~\ref{sec:Conclusion and Future Work} concludes the paper.
+
+% ######################
+\section{Background \label{sec:Background}} 
+    % ######################
+    % SECTION: Background
+    %
+    % OBJECTIVES OF THIS SECTION:
+    % - Provide essential background on Adaptive Bitrate (ABR) streaming and DASH-based video delivery.
+    % - Summarize key Quality of Experience (QoE) dimensions relevant to adaptive streaming, such as stability, rebuffering, and quality variability.
+    % - Outline the main classes of ABR strategies (heuristic and learning-based) at a high level, without algorithmic detail.
+    % - Introduce fairness concepts in multi-client streaming and motivate the use of multiple fairness metrics.
+    % - Clarify why fairness in adaptive streaming is inherently multi-dimensional and may conflict with QoE stability.
+    % - Establish the conceptual foundation required to support an analytical study of fairness trade-offs.
+    %
+    % SCOPE AND POSITIONING:
+    % - This section provides contextual background only and does not propose new mechanisms or models.
+    % - Reinforcement learning is discussed solely as a representative ABR approach, not as a contribution.
+    % - Fairness is introduced as an evaluation dimension, not as a design objective or optimization target.
+    %
+    % CHANGES RELATIVE TO THE CCGRID VERSION:
+    % - Removed references to a "proposed framework" and fairness-aware RL integration.
+    % - Shifted emphasis from algorithm design to conceptual grounding and evaluation dimensions.
+    % - Reduced methodological and implementation-specific language.
+    % - Reframed fairness from a control objective to a multi-metric analytical perspective.
+    % - Ensured consistency with the observational and trade-off-oriented scope of the P6 paper.
+    %
+    % ######################
+
+
+    
+
+    % ================================
+    % (A) ADAPTIVE BITRATE STREAMING (ABR) AND QoE FUNDAMENTALS
+    % Conteúdo original: introdução de ABR, QoE, papel do DASH.js
+    % ================================
+
+    % ================================
+    % (B) HEURISTIC ABR STRATEGIES AND MULTI-CLIENT CHALLENGES
+    % Conteúdo original: heurísticas, BOLA, competição entre usuários, falta de fairness
+    % ================================
+    
+    % ================================
+    % (C) LEARNING-BASED ABR AND FAIRNESS LIMITATIONS
+    % Conteúdo original: Pensieve, RL focado em QoE, JFI e suas limitações
+    % ================================
+    
+
+    % ================================
+    % (D) MULTI-METRIC FAIRNESS AND MOTIVATION FOR INTEGRATION
+    % Conteúdo original: trabalhos recentes sobre fairness, métricas mais avançadas
+    % ================================
+    
+    Adaptive Bitrate (ABR) streaming enables video clients to dynamically select video representations according to observed network conditions and playback state. By adapting quality over time, ABR mechanisms aim to mitigate rebuffering events, reduce startup delays, and limit disruptive quality oscillations under fluctuating bandwidth conditions. DASH-based implementations, such as DASH.js, are widely adopted in both academic research and industrial deployments, serving as representative baselines for adaptive streaming behavior. Classical ABR strategies rely on heuristic decision rules derived from throughput estimation or buffer occupancy control~\cite{jiang2012improving,yin2015control,spiteri2020bola}. While such approaches can achieve satisfactory performance in single-client scenarios, their behavior becomes significantly more complex in multi-client environments where users compete for shared and constrained network resources. Independent adaptation decisions may lead to uneven quality allocation, increased playback instability, or prolonged low-quality exposure for some users, even when overall network utilization remains efficient. Learning-based approaches, particularly those based on reinforcement learning (RL), have been explored as alternatives to heuristic ABR control. Systems such as Pensieve \cite{mao2017neural} demonstrate that data-driven policies can capture complex adaptation dynamics and improve individual Quality of Experience (QoE). However, these approaches remain primarily QoE-centric and typically evaluate fairness only as a secondary or post-hoc metric. Moreover, commonly adopted indicators such as Jain’s Fairness Index (JFI) \cite{jain1984quantitative} provide a limited view of fairness, as they do not account for temporal dynamics, instability effects, or prolonged exposure to degraded quality. Recent studies have emphasized that fairness in adaptive streaming cannot be adequately characterized by a single metric. Complementary fairness indicators have been proposed to capture different dimensions of user experience, including distributional equity, temporal exposure, throughput allocation, and playback stability~\cite{hossfeld2017definition,hossfeld2018new,akhtar2020fairness}. Taken together, these metrics reveal that fairness is inherently multi-dimensional and may conflict with traditional QoE objectives, motivating a broader evaluation perspective when analyzing multi-client adaptive streaming systems under heterogeneous network conditions.
+
+    
+\section{Related Works \label{sec:Related Works}}
+    
+    % ######################
+    % SECTION: Related Work
+    %
+    % OBJECTIVES OF THIS SECTION:
+    % - Review existing research on Adaptive Bitrate (ABR) streaming with emphasis on QoE optimization and fairness considerations.
+    % - Summarize heuristic and learning-based ABR strategies commonly used in multi-client environments.
+    % - Analyze how fairness has been incorporated in adaptive streaming, including metric-based evaluation and control-oriented approaches.
+    % - Highlight the predominance of single-metric or aggregate fairness evaluation in prior work.
+    % - Identify the lack of explicit analysis of trade-offs between different fairness metrics and QoE stability.
+    % - Position the present work as a complementary analytical study focused on fairness trade-offs rather than algorithmic innovation.
+    %
+    % SCOPE AND POSITIONING:
+    % - This section surveys the literature from an analytical perspective.
+    % - No new ABR algorithm, framework, or optimization strategy is proposed in this paper.
+    % - Reinforcement learning and edge-assisted approaches are discussed as representative examples, not as contributions.
+    % - The focus is on how fairness is evaluated and interpreted, rather than how it is enforced.
+    %
+    % CHANGES RELATIVE TO THE CCGRID VERSION:
+    % - Removed positioning language related to proposing or integrating a new fairness-aware RL framework.
+    % - Shifted emphasis from solution-driven comparison to literature-driven analysis.
+    % - Reframed fairness as an evaluation dimension subject to trade-offs, not as a design objective.
+    % - Prepared the section to support an observational and trade-off-oriented analysis in subsequent sections.
+    %
+    % MAIN STRUCTURE (TO BE PRESERVED, WITH REVISED EMPHASIS):
+    % (A) QoE-Centric ABR Strategies
+    % (B) Fairness-Aware Adaptive Streaming
+    % (C) Limitations and Open Challenges in Fairness Evaluation
+    %
+    % ######################
+    Previous works by the authors have explored QoE optimization and fairness evaluation in adaptive streaming systems~\cite{de2025joint,de2025fairness}, providing the experimental basis upon which the present analytical study is conducted. Research on adaptive video streaming has extensively investigated mechanisms for improving Quality of Experience (QoE), stability, and resource utilization in heterogeneous network environments. Early work on Adaptive Bitrate (ABR) streaming focused on heuristic strategies based on throughput estimation and buffer occupancy control. Representative approaches such as FESTIVE~\cite{jiang2012improving} and BOLA~\cite{spiteri2020bola} improved playback stability and efficiency under variable network conditions. However, these methods rely on independent client-side decisions and do not explicitly address fairness among multiple users competing for shared bandwidth, often resulting in uneven quality distribution or instability in congested scenarios. Reinforcement learning (RL) has been explored as an alternative paradigm for ABR control, aiming to capture complex adaptation dynamics through data-driven policies. Pensieve~\cite{mao2017neural} demonstrated the feasibility of learning bitrate selection strategies directly from interaction trajectories, inspiring subsequent extensions that focus on model tuning, efficiency, or content awareness, such as Oboe~\cite{akhtar2018oboe} and HotDASH~\cite{hotdash2018}. While these approaches improve individual QoE and robustness under fluctuating conditions, fairness is typically considered only as an evaluation metric or is not explicitly addressed during decision-making, limiting their applicability in multi-client environments. In parallel, several studies have introduced fairness-aware mechanisms for adaptive streaming. Metrics such as the QoE Fairness Score (QFS)~\cite{hossfeld2018new} and the Bitrate Fairness Index (BFI)~\cite{li2023achieving} propose alternative fairness formulations by capturing distributional aspects of user experience and bitrate allocation, respectively. Other works investigate distributed or optimization-based bandwidth allocation policies to mitigate unfair resource distribution at network bottlenecks~\cite{liu2022qoe-fairness}. Multi-agent learning approaches, such as MuABR~\cite{yuan2022muabr}, further explore fairness-aware adaptation by coordinating decisions across clients. Despite these advances, fairness is typically modeled using a limited set of metrics or evaluated under specific scenarios, without explicitly analyzing trade-offs between different fairness dimensions or their interaction with QoE stability. Edge-assisted adaptive streaming has also gained attention as a means to improve responsiveness and scalability. Systems such as ARARAT~\cite{farahani2022ararat} and other edge-based solutions~\cite{edge-streaming2023,edge-qoe2023} investigate collaborative mechanisms for QoE optimization and load balancing. More recent works examine fairness-aware resource allocation in edge and MEC environments~\cite{xiao2024qoe,li2023edge-fair}. Nevertheless, most of these studies either rely on aggregate fairness indicators, such as Jain’s Fairness Index, or treat fairness as a secondary objective, providing limited insight into how different fairness metrics interact with QoE stability and adaptation behavior.
+    
+    Overall, existing literature has made substantial progress in ABR optimization, fairness-aware evaluation, and edge-assisted streaming architectures. However, prior work largely focuses on improving specific performance objectives or incorporating fairness as a single aggregated criterion. Explicit analyses of trade-offs between multiple fairness metrics and their interaction with QoE stability and adaptation dynamics remain scarce. Table~\ref{tab:comparison_related_works} summarizes representative studies from the literature, highlighting the diversity of fairness perspectives adopted and the limited attention given to multi-metric trade-off analysis. This gap motivates the present work, which complements existing studies by systematically analyzing fairness trade-offs in multi-client adaptive streaming systems using a multi-metric evaluation perspective.
+
+
+    \begin{table*}[t]
+        \centering
+        \caption{Comparison of Related Works from a Fairness Evaluation Perspective}
+        \label{tab:comparison_related_works}
+        \begin{tabular}{|p{0.6cm}|p{2.9cm}|p{3.2cm}|p{4.6cm}|p{4.6cm}|}
+        \hline
+        \textbf{Work} & \textbf{Adaptation Strategy} & \textbf{Fairness Perspective} & \textbf{Evaluation Limitations} & \textbf{Evaluation Scope} \\
+        \hline
+        \cite{jiang2012improving} & Heuristic ABR (FESTIVE) & Implicit fairness via bandwidth sharing & No explicit fairness metrics; unstable under high heterogeneity & Early analysis of fairness side-effects in ABR \\
+        
+        \cite{spiteri2020bola} & Heuristic ABR (BOLA) & QoE stability-focused & Fairness not evaluated; single-client oriented & Robust buffer-based bitrate adaptation \\
+        
+        \cite{mao2017neural} & RL-based ABR (Pensieve) & QoE-centric optimization & Fairness not considered during decision-making & Learned bitrate adaptation for individual QoE \\
+        
+        \cite{akhtar2018oboe} & RL-based ABR (Oboe) & Efficiency and stability & No fairness evaluation & Automated tuning of ABR parameters \\
+        
+        \cite{hotdash2018} & Hybrid ABR (HotDASH) & Throughput efficiency & Ignores inter-client fairness & Content-aware bitrate adaptation \\
+        
+        \cite{hossfeld2018new} & Fairness metric proposal & QoE distribution fairness (QFS) & Metric-level evaluation only; no ABR integration & Definition and validation of QoE fairness metric \\
+        
+        \cite{li2023achieving} & Fairness metric proposal & Bitrate allocation fairness (BFI) & Single-metric fairness evaluation & Bitrate-based fairness assessment \\
+        
+        \cite{liu2022qoe-fairness} & Distributed bandwidth allocation & QoE-aware fairness & Focused on bandwidth allocation; limited metric diversity & Fairness-driven rate allocation at bottlenecks \\
+        
+        \cite{yuan2022muabr} & Multi-agent RL-based ABR & Fairness-aware coordination & Limited fairness metrics; scenario-specific evaluation & Coordinated bitrate decisions in multi-user scenarios \\
+        
+        \cite{farahani2022ararat} & Edge-assisted streaming & QoE improvement at the edge & Fairness treated implicitly or post-hoc & Edge-cloud collaboration for streaming \\
+        
+        \cite{xiao2024qoe} & MEC-based optimization & QoE fairness & Analytical modeling; limited experimental analysis & Fairness-aware resource allocation in MEC \\
+        
+        \cite{li2023edge-fair} & Edge-assisted ABR & Fairness via JFI & Single fairness metric; no trade-off analysis & Fairness-constrained ABR at the edge \\
+        
+        \hline\hline
+        \textbf{This Work} & \textbf{Analytical Study} & \textbf{Multi-metric fairness characterization} & \textbf{No optimization or control mechanisms proposed} & \textbf{Characterizing fairness and QoE stability trade-offs in multi-client adaptive streaming} \\
+        \hline
+
+        \end{tabular}
+    \end{table*}
+
+
+\section{Trade-off Analysis Methodology}
+\label{sec:tradeoff_methodology}
+
+    % ######################
+    % SECTION: Trade-off Analysis Methodology
+    %
+    % OBJECTIVES OF THIS SECTION:
+    % - Describe the methodological approach adopted to analyze fairness trade-offs in multi-client adaptive streaming.
+    % - Define how multiple fairness and QoE-related metrics are jointly evaluated.
+    % - Explain how experimental results are organized into comparable observation sets.
+    % - Clarify that the analysis is observational and post-execution, without influencing adaptation decisions.
+    % - Provide a reproducible framework for interpreting interactions between fairness dimensions and QoE stability.
+    %
+    % SCOPE AND POSITIONING:
+    % - This section does not introduce new algorithms, control policies, or optimization mechanisms.
+    % - All analyses are based on previously collected experimental data.
+    % - Fairness metrics are treated exclusively as evaluation indicators.
+    %
+    % ######################
+    The experimental data analyzed in this study are derived from controlled executions previously reported in related works~\cite{de2025joint,de2025fairness} and are reused exclusively for post-execution analysis. The analysis builds upon a validated experimental framework previously introduced by the authors~\cite{de2025joint,de2025fairness}, enabling a focused investigation of fairness trade-offs without confounding architectural variations. By maintaining consistent architectural assumptions across experiments, the analysis isolates the impact of adaptation behavior and network variability on fairness–stability trade-offs in multi-client environments.
+
+
+    \subsection{Experimental Scenario}
+    \label{subsec:experimantal-scenario}
+        We focused on multi-metric fairness trade-offs and interaction effects, without modifying the underlying adaptation mechanisms. Table~\ref{tab:exp03-summary} summarizes the main characteristics of the experimental scenario to ensure clarity and self-containment.
+
+        \begin{table}[h]
+            \centering
+            \caption{Summary of Experimental evaluation scenario.}
+            \label{tab:exp03-summary}
+            \scriptsize
+            \begin{tabular}{p{2.6cm}|p{4.2cm}}
+            \hline
+            \textbf{Aspect} & \textbf{Description} \\
+            \hline
+            Scenario Type & Multi-client adaptive streaming under shared edge infrastructure \\
+            \hline
+            Clients & Multiple concurrent DASH clients executed in Docker containers \\
+            \hline
+            Streaming Engine & DASH.js player automated via Selenium WebDriver \\
+            \hline
+            Edge Infrastructure & Two NGINX edge servers behind an NGINX-based load balancer \\
+            \hline
+            Network Variability & Mahimahi replay of real mobile traces \\
+            \hline
+            Network Traces & \textit{Verizon-LTE-driving} (high-throughput) and \textit{UMTS-driving} (bandwidth-limited) \\
+            \hline
+            Video Content & Big Buck Bunny encoded in six representations (360p–2160p) \\
+            \hline
+            Playback Duration & Fixed-duration sessions for all clients \\
+            \hline
+            Evaluation Focus & QoE stability, fairness distribution, and multi-metric interaction analysis \\
+            \hline
+            \end{tabular}
+        \end{table}
+
+
+
+    \subsection{Overview of the Analytical Approach}
+    
+    The objective of the proposed methodology is to analyze trade-offs between multiple fairness metrics and Quality of Experience (QoE) indicators in multi-client adaptive streaming systems. Rather than optimizing a specific objective, the approach focuses on interpreting how different adaptation strategies influence fairness dimensions under shared network conditions. All analyses are performed offline using execution logs from controlled experimental scenarios, ensuring that adaptation decisions remain unaffected by the evaluation process.
+    
+    A structured analytical workflow is adopted in which executions are grouped into observation sets, complementary fairness metrics are computed independently, inter-metric correlations are evaluated, and adaptation strategies are mapped into a fairness--stability interaction space. This enables systematic identification of metric conflicts and trade-off regions under identical network conditions.
+
+    
+    \subsection{Observation Sets and Experimental Grouping}
+    
+        To ensure consistency and interpretability, experimental results are organized into observation sets that group executions sharing comparable network characteristics. Each observation set corresponds to a specific class of network behavior, such as relatively stable conditions or highly variable throughput patterns. By avoiding the aggregation of heterogeneous scenarios, the analysis prevents misleading conclusions caused by uncontrolled variability. Within each observation set, all ABR strategies are evaluated using the same set of clients, network traces, and execution parameters. This grouping enables direct comparison of fairness outcomes and QoE stability across adaptation strategies, highlighting how identical conditions can lead to different fairness profiles.
+    
+    \subsection{Multi-Metric Fairness Evaluation}
+    
+        Fairness is evaluated using a set of complementary metrics that capture distinct dimensions of user experience and resource distribution. Rather than relying on a single aggregated index, the analysis considers each fairness metric independently to expose potential conflicts and synergies. Metrics such as QoE Fairness Score (QFS), Bitrate Fairness Index (BFI), and time-related fairness indicators are computed from per-client measurements and aggregated at the scenario level. This multi-metric perspective allows identifying situations where improvements in one fairness dimension coincide with degradation in another. For example, bitrate allocation fairness may improve while temporal QoE stability deteriorates, revealing inherent trade-offs imposed by adaptation strategies and network dynamics.
+    
+    \subsection{Trade-off Characterization}
+    
+        Trade-offs are characterized by jointly analyzing fairness metrics and QoE stability indicators, such as quality oscillations and rebuffering behavior. Instead of ranking algorithms according to a single score, the methodology examines relative positioning across metrics to identify dominant patterns and conflicting objectives. Visualization techniques, including comparative plots and metric correlation analysis, are employed to support interpretation. These visual tools highlight regions where fairness gains are associated with increased instability or reduced average quality, emphasizing that fairness-aware evaluation must consider multiple dimensions simultaneously. All analyses are strictly observational and derived from previously collected experimental data, without introducing additional simulations or claims of generalization beyond the evaluated scenarios.
+
+    
+    % \subsection{Reproducibility and Analysis Constraints}
+    
+    %     All analyses are derived exclusively from existing experimental data, and no additional simulations are conducted as part of this study. Metric computation procedures, aggregation rules, and grouping criteria are consistently applied across all scenarios to ensure reproducibility. While the methodology enables detailed trade-off analysis, it does not claim generalization beyond the evaluated scenarios. Instead, it provides structured insights into fairness behavior under controlled and repeatable conditions.
+
+\section{Results and Discussion}
+\label{sec:results_discussion}
+
+    % ######################
+    % SECTION: Results and Discussion
+    %
+    % OBJECTIVES OF THIS SECTION:
+    % - Present and interpret fairness and QoE-related results derived from prior experimental data.
+    % - Analyze trade-offs between multiple fairness metrics and QoE stability indicators.
+    % - Compare adaptation strategies from an observational perspective, without ranking or optimization claims.
+    % - Highlight recurring behavioral patterns across different network conditions.
+    % - Discuss implications of fairness trade-offs for adaptive streaming systems.
+    %
+    % SCOPE AND POSITIONING:
+    % - Results are derived exclusively from previously collected experimental executions.
+    % - No new simulations or algorithmic evaluations are performed.
+    % - The discussion emphasizes interpretation and insight rather than performance superiority.
+    %
+    % ######################    
+        This section presents the results of the multi-metric fairness analysis based on previously collected experimental data. The discussion focuses on how different adaptive bitrate (ABR) strategies influence fairness outcomes and QoE stability under shared and constrained network conditions. The results reveal consistent behavioral patterns that differentiate adaptation strategies across fairness and stability dimensions and follow the observation sets defined in Section~\ref{sec:tradeoff_methodology}, ensuring fair comparisons under comparable network conditions.   
+
+    
+    \subsection{Fairness Metric Behavior Across Adaptation Strategies}
+    
+        The analysis reveals that different ABR strategies exhibit distinct fairness profiles depending on the metric considered. Metrics capturing distributional aspects of user experience, such as QoE Fairness Score (QFS), often favor strategies that prioritize stable QoE exposure, whereas metrics related to resource allocation, such as Bitrate Fairness Index (BFI), may highlight different adaptation behaviors. This divergence indicates that fairness improvements observed under one metric may coexist with degradation according to another, reinforcing the need for a multi-metric evaluation perspective.
+
+
+    \begin{figure}
+            \centering
+            \includegraphics[width=1.04\linewidth]{images/p6-f1-fairness-metric-behavior-3.pdf}
+            \caption{Fairness metric behavior across adaptive bitrate (ABR) strategies under multi-client conditions, comparing QFS, TF-QoE, and BFI.}
+
+            \label{fig:fairness_metrics_exp3}
+        \end{figure}
+
+        Figure~\ref{fig:fairness_metrics_exp3} illustrates this behavior under multi-client conditions. While most ABR strategies achieve consistently high QoE Fairness Score (QFS) values (typically above $\approx 0.9$), substantial disparities emerge when temporal fairness (TF-QoE) and bitrate distribution fairness (BFI) are considered. In particular, TF-QoE exhibits noticeable variation across adaptation strategies, whereas BFI shows pronounced degradation for algorithms that prioritize individual QoE maximization, with values dropping to the $0.7$–$0.8$ range in some cases. These results indicate that strategies maintaining stable QoE exposure across users do not necessarily ensure equitable bitrate allocation, especially under heterogeneous network conditions. Consequently, single-metric fairness evaluation may obscure relevant trade-offs, reinforcing the need for a multi-dimensional fairness analysis in adaptive streaming systems.
+
+
+    \subsection{Multi-Metric Fairness Interaction}
+
+        Figure~\ref{fig:fairness_multimetric_interaction_exp3} analyzes the interaction between different fairness metrics under multi-client conditions using Spearman correlation analysis. The results reveal a strong positive correlation between TF-QoE and QoE Fairness Score (QFS) ($\rho \approx 0.94$), indicating that both metrics capture closely aligned aspects of perceived user experience fairness. In contrast, pronounced negative correlations are observed between QoE-oriented fairness metrics and bitrate distribution fairness. Specifically, QFS exhibits a strong negative correlation with the Bitrate Fairness Index (BFI) ($\rho \approx -0.77$), while TF-QoE shows a moderate negative correlation with BFI ($\rho = -0.60$). These results indicate that improvements in perceived QoE fairness are often accompanied by increased imbalance in bitrate allocation among competing clients. Stability-Aware Fairness (SAF), in turn, presents only weak correlations with the remaining metrics (|$\rho$| $\leq 0.14$), suggesting that adaptation stability captures a largely orthogonal fairness dimension. Overall, these interactions demonstrate that fairness metrics do not evolve independently and may encode competing objectives, particularly in heterogeneous and congested environments. Consequently, aggregated or single-metric fairness evaluation may obscure underlying conflicts between fairness dimensions, reinforcing the need for multi-metric analysis when interpreting adaptive streaming behavior.
+
+        
+        \begin{figure}
+            \centering
+            \includegraphics[width=1.04\linewidth]{images/P6-F2-multimetric-interaction-3.pdf}
+            \caption{Multi-metric fairness interaction under multi-client conditions, based on Spearman correlation analysis.}
+            \label{fig:fairness_multimetric_interaction_exp3}
+        \end{figure}
+
+
+    \subsection{Trade-offs Between Fairness and QoE Stability}
+
+        A recurring pattern observed across scenarios is the interaction between fairness outcomes and QoE stability indicators, such as quality oscillations and rebuffering behavior. Figure~\ref{fig:fairness_stability_exp3} illustrates this interaction by jointly analyzing temporal fairness (TF-QoE) and playback stability (SAF) under multi-client conditions. The results show that adaptation strategies occupy distinct regions of the fairness–stability space, indicating that improvements along one dimension do not necessarily translate into gains along the other. Adaptation strategies that aggressively react to short-term throughput variations may improve fairness-related metrics but often at the cost of increased playback instability. As illustrated in Figure~\ref{fig:fairness_stability_exp3}, DASH-DEFAULT achieves moderate temporal fairness (TF-QoE $\approx 0.71$) but exhibits the lowest playback stability among the evaluated strategies (SAF $\approx 0.68$). In contrast, DASH-QoE-BASED prioritizes stability, reaching the highest SAF value (SAF $\approx 0.87$), while operating at lower temporal fairness levels (TF-QoE $\approx 0.64$). RL-based strategies occupy intermediate regions of the fairness–stability space. For instance, PENSIEVE-FAIRNESS improves temporal fairness relative to the baseline (TF-QoE $\approx 0.72$) while maintaining moderate stability (SAF $\approx 0.76$), whereas BOLA simultaneously achieves high fairness and stability (TF-QoE $\approx 0.77$, SAF $\approx 0.79$). These results confirm that fairness and stability objectives are not always aligned and that their trade-offs become more pronounced under heterogeneous and variable network conditions.
+
+
+        \begin{figure}
+            \centering
+            \includegraphics[width=1.05\linewidth]{images/P6-F3-fairness_stability_exp3_tf_qoe.pdf}
+            \caption{Fairness versus playback stability interaction under multi-client conditions, relating TF-QoE and SAF across ABR strategies.}
+            \label{fig:fairness_stability_exp3}
+        \end{figure}
+
+        
+    
+    \subsection{Impact of Network Variability on Fairness Trade-offs}
+
+        Network variability plays a critical role in shaping fairness outcomes. Figure~\ref{fig:network_variability_exp3} illustrates the impact of highly variable network conditions on bitrate adaptation behavior across different ABR strategies. During the initial phase of the session, bitrate variability reaches high levels for all algorithms, with standard deviation values frequently exceeding 5~Mbps and peaking above 10~Mbps in more reactive strategies. As the session progresses, variability decreases on average but remains unevenly distributed across algorithms. While conservative approaches exhibit smoother adaptation curves with variability typically constrained below 2–3~Mbps, more aggressive strategies continue to experience recurrent spikes throughout the playback duration. These persistent fluctuations amplify disparities in temporal QoE exposure, even when aggregate fairness indicators suggest balanced resource allocation. Overall, the results indicate that network dynamics can intensify latent fairness trade-offs by prolonging periods of degraded quality for subsets of users. This behavior reinforces the importance of incorporating temporal fairness perspectives when evaluating adaptive streaming systems operating under highly volatile network conditions.
+
+        \begin{figure}
+            \centering
+            \includegraphics[width=1.04\linewidth]{images/p6-f4-network-variability-impact-3.pdf}
+            \caption{Network variability impact on bitrate adaptation over time under multi-client conditions.}
+
+            \label{fig:network_variability_exp3}
+        \end{figure}
+
+    \subsection{Discussion and Implications}
+    
+        From an analytical perspective, the results show that fairness trade-offs are structural properties emerging from the interaction between adaptation logic and network variability, rather than anomalies of specific algorithms. Fairness in multi-client adaptive streaming is inherently multi-dimensional, and no single ABR strategy consistently dominates across all fairness metrics and QoE stability indicators. Instead, strategies occupy distinct regions of the fairness–stability space, reflecting implicit trade-offs between responsiveness and conservatism. Improvements in distributional fairness, bitrate allocation, or temporal QoE exposure do not necessarily occur simultaneously. Aggressive adaptation may enhance certain fairness metrics while degrading playback stability, whereas conservative strategies preserve stability at the cost of increased long-term disparities. Network variability amplifies these effects: under stable conditions, fairness outcomes tend to converge, while highly variable environments expose latent conflicts between fairness dimensions. These findings highlight the limitations of single-metric evaluation and carry direct implications for fairness-aware ABR design. Single-metric optimization is structurally insufficient in multi-client environments, and adaptation mechanisms—particularly reinforcement learning policies—should incorporate multi-dimensional evaluation criteria that explicitly account for network variability as a fairness amplifier.
+
+
+
+\section{Conclusion and Future Work \label{sec:Conclusion and Future Work}}
+
+    This study demonstrates that fairness trade-offs are structural characteristics of multi-client adaptive streaming systems. Through a multi-metric observational analysis, we show that fairness is inherently multi-dimensional and cannot be adequately captured by single or aggregated indicators. Different ABR strategies occupy distinct regions of the fairness–stability space, reflecting implicit trade-offs between responsiveness and conservatism under shared and heterogeneous network conditions. The results further indicate that network variability acts as a fairness amplifier, exposing latent conflicts between fairness dimensions that remain obscured under stable scenarios. Rather than identifying a universally optimal strategy, this work emphasizes the need for structured, multi-dimensional fairness evaluation frameworks that explicitly account for interacting fairness metrics and network dynamics when assessing adaptive streaming behavior. Future work will investigate how these analytical insights can inform the design of fairness-aware adaptation mechanisms and multi-objective learning strategies capable of balancing competing fairness dimensions in dynamic edge-assisted environments.
+
+
+% \section*{Acknowledgment}
+%     \scriptsize
+%     This work was financed in part by the Fundação de Amparo à Pesquisa e Inovação do Estado de Santa Catarina (FAPESC) - Edital 24/2022 and the Federal Institute of Santa Catarina (IFSC). We also would like to thank the National Council for Scientific and Technological Development (CNPq) and the Federal University of Santa Catarina (UFSC) for partially supporting this study. Additionally, this article was edited for clarity and language improvement using ChatGPT, an AI-based language model.
+
+
+\bibliography{references}
+\bibliographystyle{IEEEtran}
+
+
+\end{document}
+

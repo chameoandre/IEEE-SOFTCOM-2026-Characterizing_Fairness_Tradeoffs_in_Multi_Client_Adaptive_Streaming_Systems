@@ -1,0 +1,687 @@
+
+
+ABSTRACT
+==============
+
+
+
+INTRODUCTION
+==============
+
+@inproceedings{de2025fairness,
+  title={Fairness-Aware QoE Assessment for Adaptive Video Streaming on Edge Layers},
+  author={de Moraes, Andr{\'e} Luiz S and de Macedo, Douglas DJ},
+  booktitle={International Conference on P2P, Parallel, Grid, Cloud and Internet Computing},
+  pages={90--101},
+  year={2025},
+  organization={Springer}
+}
+
+@inproceedings{de2025joint,
+  title={Joint QoE Optimization in Adaptive Streaming Network Fluctuations on Edge Layers},
+  author={de Moraes, Andr{\'e} Luiz Silva and de Macedo, Douglas DJ},
+  booktitle={2025 International Conference on Software, Telecommunications and Computer Networks (SoftCOM)},
+  pages={1--6},
+  year={2025},
+  organization={IEEE}
+}
+
+
+
+@ARTICLE{shi2016edge,
+  author={Shi, Weisong and Cao, Jie and Zhang, Quan and Li, Youhuizi and Xu, Lanyu},
+  journal={IEEE Internet of Things Journal}, 
+  title={Edge Computing: Vision and Challenges}, 
+  year={2016},
+  volume={3},
+  number={5},
+  pages={637--646},
+  doi={10.1109/JIOT.2016.2579198}
+}
+
+@inproceedings{stockhammer2011dynamic,
+  title={Dynamic Adaptive Streaming over HTTP: Standards and Design Principles},
+  author={Stockhammer, Thomas},
+  booktitle={Proceedings of the 2nd Annual ACM Conference on Multimedia Systems},
+  pages={133--144},
+  year={2011},
+  doi={10.1145/1943552.1943572}
+}
+
+% == FESTIVE ==
+@inproceedings{jiang2012improving,
+  title={Improving fairness, efficiency, and stability in http-based adaptive video streaming with festive},
+  author={Jiang, Junchen and Sekar, Vyas and Zhang, Hui},
+  booktitle={Proceedings of the 8th international conference on Emerging networking experiments and technologies},
+  pages={97--108},
+  year={2012}
+}
+
+% == MPC ==
+@inproceedings{yin2015control,
+  title={A control-theoretic approach for dynamic adaptive video streaming over HTTP},
+  author={Yin, Xiaoqi and Jindal, Abhishek and Sekar, Vyas and Sinopoli, Bruno},
+  booktitle={Proceedings of the 2015 ACM Conference on Special Interest Group on Data Communication},
+  pages={325--338},
+  year={2015}
+}
+
+QoE Fairness Definition
+===========================================
+@article{hossfeld2017definition,
+  title={Definition of QoE Fairness in Shared Systems},
+  author={Ho{\ss}feld, Tobias and Skorin-Kapov, Lea and Varela, M and Jost, N},
+  journal={IEEE Transactions on Multimedia},
+  volume={19},
+  number={4},
+  pages={791--803},
+  year={2017},
+  doi={10.1109/TMM.2017.2650898}
+}
+
+@ARTICLE{akhtar2020fairness,
+  author={Akhtar, Zeeshan and Mukerjee, Manya and Balakrishnan, Hari},
+  journal={ACM Computing Surveys}, 
+  title={Fairness in Adaptive Video Streaming: A Survey}, 
+  year={2020},
+  volume={53},
+  number={4},
+  pages={1--34},
+  doi={10.1145/3408307}
+}
+
+@article{yuan2023joint,
+  title={Joint optimization of qoe and fairness for adaptive video streaming in heterogeneous mobile environments},
+  author={Yuan, Yali and Wang, Weijun and Wang, Yuhan and Adhatarao, Sripriya Srikant and Ren, Bangbang and Zheng, Kai and Fu, Xiaoming},
+  journal={IEEE/ACM Transactions on Networking},
+  volume={32},
+  number={1},
+  pages={50--64},
+  year={2023},
+  publisher={IEEE}
+}
+
+
+
+@article{zhao2016qoe,
+  title={QoE in video transmission: A user experience-driven strategy},
+  author={Zhao, Tiesong and Liu, Qian and Chen, Chang Wen},
+  journal={IEEE Communications Surveys \& Tutorials},
+  volume={19},
+  number={1},
+  pages={285--302},
+  year={2016},
+  publisher={IEEE}
+}
+
+
+@article{altamimi2020qoe,
+  title={QoE-fair DASH video streaming using server-side reinforcement learning},
+  author={Altamimi, Sa’di and Shirmohammadi, Shervin},
+  journal={ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM)},
+  volume={16},
+  number={2s},
+  pages={1--21},
+  year={2020},
+  publisher={ACM New York, NY, USA}
+}
+
+@techreport{forecast2019cisco,
+  title = {Cisco Visual Networking Index: Global Mobile Data Traffic Forecast Update, 2017--2022},
+  institution = {Cisco Systems},
+  year = {2019},
+  note = {White paper}
+}
+
+
+
+% MPEG DASH REFERENCE - PART 1
+@misc{ISO23009-1:2012-DASH1,
+    title = {Information technology — Dynamic adaptive streaming over HTTP (DASH) — Part 1: Media presentation description and segment formats},
+    year = {2012},
+    organization = {{International Organization for Standardization/International Electrotechnical Commission (ISO/IEC)}},
+    number = {ISO/IEC 23009-1:2012}
+}
+
+BACKGROUND
+%=================%=================%=================
+
+@article{spiteri2019theory,
+  title={From theory to practice: Improving bitrate adaptation in the DASH reference player},
+  author={Spiteri, Kevin and Sitaraman, Ramesh and Sparacio, Daniel},
+  journal={ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM)},
+  volume={15},
+  number={2s},
+  pages={1--29},
+  year={2019},
+  publisher={ACM New York, NY, USA}
+}
+
+@article{marx2020implementing,
+  title={Implementing BOLA-BASIC on Puffer: Lessons for the use of SSIM in ABR logic},
+  author={Marx, Emily and Yan, Francis Y and Winstein, Keith},
+  journal={arXiv preprint arXiv:2011.09611},
+  year={2020}
+}
+
+
+
+@inproceedings{mao2017neural,
+  title={Neural adaptive video streaming with pensieve},
+  author={Mao, Hongzi and Netravali, Ravi and Alizadeh, Mohammad},
+  booktitle={Proceedings of the conference of the ACM special interest group on data communication},
+  pages={197--210},
+  year={2017}
+}
+
+
+FAIRNESS METRICS
+%=================%=================%=================
+
+%JAIN'S INDEX
+--------------------
+
+%Defines a group of 5 axiom for Fairness and propose an Unified Framework incorporing Jain’s Fairness Index, α-fair utility and entropy as special cases
+
+@book{lan2010axiomatic,
+  title={An axiomatic theory of fairness in network resource allocation},
+  author={Lan, Tian and Kao, David and Chiang, Mung and Sabharwal, Ashutosh},
+  year={2010},
+  publisher={IEEE}
+}
+
+
+
+@article{ishizaki2011analysis,
+  title={Analysis of the statistical time-access fairness index of one-bit feedback fair scheduler},
+  author={Ishizaki, Fumio},
+  journal={Numerical Algebra, Control and Optimization},
+  volume={1},
+  number={4},
+  pages={675--689},
+  year={2011},
+  publisher={Numerical Algebra, Control and Optimization}
+}
+
+
+%BITRATE FAINESS INDEX (BFI)
+@article{li2023achieving,
+  title={Achieving qoe fairness in bitrate allocation of 360 video streaming},
+  author={Li, Zhaoyi and Zhong, Ping and Huang, Jiawei and Gao, Feng and Wang, Jianxin},
+  journal={IEEE Transactions on Multimedia},
+  volume={26},
+  pages={1169--1178},
+  year={2023},
+  publisher={IEEE}
+}
+
+%QoE Fairness Score (QFS)
+@article{hossfeld2018new,
+  title={A new QoE fairness index for QoE management},
+  author={Ho{\ss}feld, Tobias and Skorin-Kapov, Lea and Heegaard, Poul E and Varela, Mart{\'\i}n},
+  journal={Quality and User Experience},
+  volume={3},
+  pages={1--23},
+  year={2018},
+  publisher={Springer}
+}
+
+
+@inproceedings{kleinrouweler2015modeling,
+  title={Modeling stability and bitrate of network-assisted HTTP adaptive streaming players},
+  author={Kleinrouweler, Jan Willem and Cabrero, Sergio and van der Mei, Rob and Cesar, Pablo},
+  booktitle={2015 27th International Teletraffic Congress},
+  pages={177--184},
+  year={2015},
+  organization={IEEE}
+}
+
+
+ADAPTIVE BITRATE STREAMING AND QOE CHALLENGES
+%=================%=================%=================
+
+
+QOE Fundamentals
+%=================
+
+@article{zhang2020deepqoe,
+  title={DeepQoE: A multimodal learning framework for video quality of experience (QoE) prediction},
+  author={Zhang, Huaizheng and Dong, Linsen and Gao, Guanyu and Hu, Han and Wen, Yonggang and Guan, Kyle},
+  journal={IEEE Transactions on Multimedia},
+  volume={22},
+  number={12},
+  pages={3210--3223},
+  year={2020},
+  publisher={IEEE}
+}
+
+@article{barman2019qoe,
+  title={QoE modeling for HTTP adaptive video streaming--a survey and open challenges},
+  author={Barman, Nabajeet and Martini, Maria G},
+  journal={Ieee Access},
+  volume={7},
+  pages={30831--30859},
+  year={2019},
+  publisher={IEEE}
+}
+
+
+
+QOE metrics score
+%=================
+@article{li2023real,
+title={A Real-Time Blind Quality-of-Experience Assessment Metric for HTTP Adaptive Streaming},
+author={Chunyi Li and May Lim and A. Bentaleb and Roger Zimmermann},
+journal={2023 IEEE International Conference on Multimedia and Expo (ICME)},
+year={2023},
+pages={1661-1666},
+doi={10.1109/ICME55011.2023.00286}
+}
+
+@article{nos2024buffer,
+title={Buffer-Based Adaptive Bitrate Algorithm for Enhanced Quality of Experience},
+author={Tarnim Nos and Ahmed O. Elmeligy and Mohamed S. Hassan and T. Landolsi and Mahmoud H. Ismail},
+journal={2024 International Telecommunications Conference (ITC-Egypt)},
+year={2024},
+pages={721-726},
+doi={10.1109/ITC-Egypt61547.2024.10620520}
+}
+
+
+@article{huang2024q,
+title={Q2oE: Balancing QoE Fairness and Preference for Video Streaming from Cooperative Edge Servers},
+author={Xinwei Huang and Yin Xu and Jinbo Cai and He Sun and Jie Wu and Mingjun Xiao},
+journal={2024 IEEE 21st International Conference on Mobile Ad-Hoc and Smart Systems (MASS)},
+year={2024},
+pages={412-418},
+doi={10.1109/MASS62177.2024.00061}
+}
+
+@article{laine2022network,
+title={Network Capacity Estimators Predicting QoE in HTTP Adaptive Streaming},
+author={S. Laine and I. Hakala},
+journal={IEEE Access},
+year={2022},
+volume={10},
+pages={9817-9829},
+doi={10.1109/ACCESS.2022.3145185}
+}
+
+@article{yu2022quality,
+  title={Quality of experience oriented adaptive video streaming for edge assisted cellular networks},
+  author={Yu, Jun and Wen, Hanfei and Pan, Guangjin and Zhang, Shunqing and Chen, Xiaojing and Xu, Shugong},
+  journal={IEEE Wireless Communications Letters},
+  volume={11},
+  number={11},
+  pages={2305--2309},
+  year={2022},
+  publisher={IEEE}
+}
+
+@article{taraghi2022towards,
+title={Towards Better Quality of Experience in HTTP Adaptive Streaming},
+author={Babak Taraghi and Selina Zoe Haack and C. Timmerer},
+journal={2022 16th International Conference on Signal-Image Technology & Internet-Based Systems (SITIS)},
+year={2022},
+pages={608-615},
+doi={10.1109/SITIS57111.2022.00096}
+}
+
+
+
+video delivering under Network Fluctuations
+==============
+
+@article{yin2024learning,
+  title={Learning Accurate Network Dynamics for Enhanced Adaptive Video Streaming},
+  author={Yin, Jiaoyang and Chen, Hao and Xu, Yiling and Ma, Zhan and Xu, Xiaozhong},
+  journal={IEEE Transactions on Broadcasting},
+  year={2024},
+  publisher={IEEE}
+}
+
+@inproceedings{naik2022armpc,
+  title={ARMPC-ARIMA based prediction model for Adaptive Bitrate Scheme in Streaming},
+  author={Naik, Sankalp and Khan, Osama and Katre, Ashay and Keskar, Avinash},
+  booktitle={2022 1st International Conference on the Paradigm Shifts in Communication, Embedded Systems, Machine Learning and Signal Processing (PCEMS)},
+  pages={107--112},
+  year={2022},
+  organization={IEEE}
+}
+
+@inproceedings{zhang2023intelligent,
+  title={An Intelligent Learning Approach to Achieve Near-Second Low-Latency Live Video Streaming under Highly Fluctuating Networks},
+  author={Zhang, Guanghui and Liu, Ke and Xiao, Mengbai and Wang, Bingshu and Aggarwal, Vaneet},
+  booktitle={Proceedings of the 31st ACM International Conference on Multimedia},
+  pages={8067--8075},
+  year={2023}
+}
+
+@article{wu2022adaptive,
+  title={Adaptive Bandwidth Prediction and Smoothing Glitches in Low-Latency Live Streaming},
+  author={Wu, Dapeng and Cui, Linfeng and Tang, Tong and Wang, Ruyan},
+  journal={Security and Communication Networks},
+  volume={2022},
+  number={1},
+  pages={4992957},
+  year={2022},
+  publisher={Wiley Online Library}
+}
+
+
+QOE FAIRNESS IN ADAPTIVE STREAMING DELIVERING
+======================================================================
+@techreport{jain1984quantitative,
+  title       = {A Quantitative Measure of Fairness and Discrimination},
+  author      = {Jain, Rajendra K. and Chiu, Dah-Ming W. and Hawe, William R.},
+  institution = {Digital Equipment Corporation},
+  year        = {1984}
+}
+
+++++++++++++++++++++++++++++++
+=== RELATED WORKS === 
+++++++++++++++++++++++++++++++
+
+@article{xiao2024qoe,
+  title      =  {QoE-Fairness-Aware Bandwidth Allocation Design for MEC-Assisted ABR Video Transmission},
+  author    =   {Xiao, Ailing and Wu, Sheng and Ou, Yongkang and Chen, Ning and Jiang, Chunxiao and Zhang, Wei},
+  journal   =   {IEEE Transactions on Network and Service Management},
+  year      =   {2024},
+  publisher =   {IEEE},
+  doi       =   {10.1109/TNSM.2024.3471632}
+}
+
+
+@article{spiteri2020bola,
+  title     =   {BOLA: Near-optimal bitrate adaptation for online videos},
+  author    =   {Spiteri, Kevin and Urgaonkar, Rahul and Sitaraman, Ramesh K},
+  journal   =   {IEEE/ACM transactions on networking},
+  volume    =   {28},
+  number    =   {4},
+  pages     =   {1698--1711},
+  year      =   {2020},
+  publisher =   {IEEE},
+  doi       =   {10.1109/TNET.2020.2996964}
+}
+
+
+@inproceedings{akhtar2018oboe,
+  title     =   {Oboe: Auto-tuning video ABR algorithms to network conditions},
+  author    =   {Akhtar, Zahaib and Nam, Yun Seong and Govindan, Ramesh and Rao, Sanjay and Chen, Jessica and Katz-Bassett, Ethan and Ribeiro, Bruno and Zhan, Jibin and Zhang, Hui},
+  booktitle =   {Proceedings of the 2018 Conference of the ACM Special Interest Group on Data Communication},
+  pages     =   {44--58},
+  year      =   {2018},
+  doi       =   {10.1145/3230543.3230558}
+}
+
+
+@inproceedings{hotdash2018,
+  author    = {Liang Zhang and Bo Li and Chuan Wu},
+  title     = {HotDASH: Hot Data-Aware Rate Adaptation for Dynamic Adaptive Streaming Over HTTP},
+  booktitle = {Proceedings of IEEE International Conference on Communications (ICC)},
+  year      = {2018},
+  pages     = {1--7},
+  doi       = {10.1109/ICC.2018.8422625}
+}
+
+
+@article{li2023edge-fair,
+  author    = {Xin Li and Yawen Chen and Wenwu Zhu},
+  title     = {Fairness-Aware Adaptive Bitrate Streaming with Edge Assistance},
+  journal   = {IEEE Transactions on Multimedia},
+  year      = {2023},
+  volume    = {25},
+  number    = {8},
+  pages     = {12345--12356},
+  doi       = {10.1109/TMM.2023.3267890}
+}
+
+
+@inproceedings{festive2012,
+  author    = {T. Huang, R. Johari, and N. McKeown},
+  title     = {A Buffer-Based Approach to Rate Adaptation: Evidence from a Large Video Streaming Service},
+  booktitle = {Proceedings of the ACM Internet Measurement Conference (IMC)},
+  year      = {2012},
+  pages     = {255--268},
+  doi       = {10.1145/2619239.2626296}
+}
+
+@article{liu2022qoe-fairness,
+  author    = {Yazhi Liu and Dongyu Wei and Chunyang Zhang and Wei Li},
+  title     = {Distributed Bandwidth Allocation Strategy for QoE Fairness of Multiple Video Streams in Bottleneck Links},
+  journal   = {Future Internet},
+  year      = {2022},
+  volume    = {14},
+  number    = {5},
+  pages     = {152},
+  doi       = {10.3390/fi14050152}
+}
+
+
+@inproceedings{yuan2022muabr,
+  title={Muabr: Multi-user adaptive bitrate algorithm based multi-agent deep reinforcement learning},
+  author={Yuan, Haoyue and Lu, Hancheng and Meng, Linghui and Liu, Mengjie},
+  booktitle={ICC 2022-IEEE International Conference on Communications},
+  pages={751--756},
+  year={2022},
+  organization={IEEE}
+}
+
+@article{edge-streaming2023,
+  author    = {L. Zhang and W. Wang},
+  title     = {Edge-Assisted Adaptive Streaming for QoE Enhancement: A Load Balancing Perspective},
+  journal   = {IEEE Transactions on Network and Service Management},
+  year      = {2023},
+  volume    = {20},
+  number    = {3},
+  pages     = {512--525}
+}
+
+@article{edge-qoe2023,
+  author    = {J. Kim and M. Lee},
+  title     = {QoE-Driven Adaptive Streaming in Edge Computing Environments},
+  journal   = {ACM Transactions on Multimedia Computing, Communications, and Applications},
+  year      = {2023},
+  volume    = {19},
+  number    = {2},
+  pages     = {1--18}
+}
+
+
+@article{ma2022learning,
+  title={Learning-based joint QoE optimization for adaptive video streaming based on smart edge},
+  author={Ma, Xiaoteng and Li, Qing and Jiang, Yong and Muntean, Gabriel-Miro and Zou, Longhao},
+  journal={IEEE Transactions on Network and Service Management},
+  volume={19},
+  number={2},
+  pages={1789--1806},
+  year={2022},
+  publisher={IEEE}
+}
+
+@inproceedings{aiguo2023qoe,
+  title={QoE-Driven Optimization Strategies for Dynamic Adaptive Streaming Media},
+  author={Aiguo, Ji and Yunzhe, Luan and Xuebo, Liu},
+  booktitle={2023 IEEE International Conference on Smart Internet of Things (SmartIoT)},
+  pages={177--183},
+  year={2023},
+  organization={IEEE}
+}
+
+@inproceedings{krishnan2012video,
+  title={Video stream quality impacts viewer behavior: inferring causality using quasi-experimental designs},
+  author={Krishnan, S Shunmuga and Sitaraman, Ramesh K},
+  booktitle={Proceedings of the 2012 Internet Measurement Conference},
+  pages={211--224},
+  year={2012}
+}
+@article{farahani2022ararat,
+  title={ARARAT: A collaborative edge-assisted framework for HTTP adaptive video streaming},
+  author={Farahani, Reza and Shojafar, Mohammad and Timmerer, Christian and Tashtarian, Farzad and Ghanbari, Mohammad and Hellwagner, Hermann},
+  journal={IEEE Transactions on Network and Service Management},
+  volume={20},
+  number={1},
+  pages={625--643},
+  year={2022},
+  publisher={IEEE}
+
+
+### NETWORK FLUCTUATIONS 1 ###
+@inproceedings{darwich2024optimizing,
+  title={Optimizing QoE in IoT-Based Video Streaming through Deep Learning Algorithms},
+  author={Darwich, Mahmoud and Khalil, Kasem and Bayoumi, Magdy},
+  booktitle={2024 International Conference on Artificial Intelligence in Information and Communication (ICAIIC)},
+  pages={052--057},
+  year={2024},
+  organization={IEEE}
+}
+
+### NETWORK FLUCTUATIONS 2 ###
+@article{xiao2020traffic,
+  title={Traffic-aware rate adaptation for improving time-varying QoE factors in mobile video streaming},
+  author={Xiao, Ailing and Huang, Xiaofu and Wu, Sheng and Chen, Haoting and Ma, Li},
+  journal={IEEE Transactions on Network Science and Engineering},
+  volume={7},
+  number={4},
+  pages={2392--2405},
+  year={2020},
+  publisher={IEEE}
+}
+
+
+### EDGE1 ###
+@article{chen2021dual,
+  title={Dual pricing optimization for live video streaming in mobile edge computing with joint user association and resource management},
+  author={Chen, Wei-Yu and Chou, Po-Yu and Wang, Chih-Yu and Hwang, Ren-Hung and Chen, Wen-Tsuen},
+  journal={IEEE Transactions on Mobile Computing},
+  year={2021},
+  publisher={IEEE}
+}
+
+### EDGE2 ### 
+@article{tuysuz2020qoe,
+  title={QoE-based mobility-aware collaborative video streaming on the edge of 5G},
+  author={Tuysuz, Mehmet Fatih and Aydin, Mehmet Emin},
+  journal={IEEE Transactions on Industrial Informatics},
+  volume={16},
+  number={11},
+  pages={7115--7125},
+  year={2020},
+  publisher={IEEE}
+}
+
+
+
+TRAFFIC-CONTROL documentation
++++++++++++++++
+@misc{man7tcontrol2024,
+  author = {{man7.org}},
+  title = {tc - show / manipulate traffic control settings},
+  year = {2023},
+  url = {https://man7.org/linux/man-pages/man8/tc.8.html},
+  note = {Accessed: 2024-11-12}
+}
+
+Big Buck Bunny Video Dataset
++++++++++++++++
+
+@misc{peach_blender2024,
+  author = {Blender Foundation},
+  title = {Peach: Open Movie Project by Blender Foundation},
+  howpublished = {\url{https://peach.blender.org}},
+  year = {2024},
+  note = {Accessed: 2024-09-23}
+}
+
+SELENIUM
++++++++++++++++
+@misc{selenium2024,
+  author = {Selenium},
+  title = {SeleniumHQ Browser Automation},
+  howpublished = {\url{https://www.selenium.dev}},
+  year = {2024},
+  note = {Accessed: 2024-09-23}
+}
+
+NGinx server
++++++++++++++++
+@misc{nginx2024,
+  author = {NGINX},
+  title = {NGINX: High Performance Load Balancer, Web Server, and Reverse Proxy},
+  howpublished = {\url{https://nginx.org}},
+  year = {2024},
+  note = {Accessed: 2024-09-23}
+}
+
+MAHIMAHI 
++++++++++++++++
+@misc{mahimahi2025,
+  author       = "{MIT Computer Science and Artificial Intelligence Laboratory}",
+  title        = "{Mahimahi: A Record-and-Replay for HTTP}",
+  year         = {2025},
+  url          = {http://mahimahi.mit.edu},
+  note         = "Accessed: {February 14, 2025}"
+}
+
+FFMPEG Cross-plataform
++++++++++++++++
+@misc{ffmpeg2024,
+  author = {{FFmpeg Developers}},
+  title = {{FFmpeg: A Complete, Cross-Platform Solution to Record, Convert and Stream Audio and Video}},
+  howpublished = {\url{https://ffmpeg.org}},
+  year = {2024},
+  note = {Accessed: 2024-09-23}
+}
+
+Docker
++++++++++++++++
+@online{docker2025,
+    author = {Docker Inc.},
+    title = {Docker: the open platform for distributed applications},
+    year = {2024},
+    url = {https://www.docker.com},
+    note = {Accessed: Fev. 10, 2025}
+}
+
+
+Stable-Baselines3
++++++++++++++++
+@article{stable-baselines3,
+  author  = {Antonin Raffin and Ashley Hill and Adam Gleave and Anssi Kanervisto and Maximilian Ernestus and Noah Dormann},
+  title   = {Stable-Baselines3: Reliable Reinforcement Learning Implementations},
+  journal = {Journal of Machine Learning Research},
+  year    = {2021},
+  volume  = {22},
+  number  = {268},
+  pages   = {1--8},
+  url     = {http://jmlr.org/papers/v22/20-1364.html}
+}
+
+
+
+
+
+#RESEARCH GROUP
+#------------------------------
+
+@article{pioli2022overview,
+  title={An overview of data reduction solutions at the edge of IoT systems: a systematic mapping of the literature},
+  author={Pioli, L and Dorneles, CF and de Macedo, DDJ and Dantas, MAR},
+  journal={Computing},
+  volume={104},
+  number={8},
+  pages={1867--1889},
+  year={2022},
+  publisher={Springer}
+}
+
+@article{macedo2019cloudiot,
+  title={Toward an efficient healthcare CloudIoT architecture by using a game theory approach},
+  author={de Macedo, DDJ and de Ara{\'u}jo, GM and Dutra, ML and Dutra, ST and Lezana, {\'A}GR},
+  journal={Concurrent Engineering},
+  volume={27},
+  number={3},
+  pages={189--200},
+  year={2019},
+  publisher={SAGE Publications Sage UK: London, England}
+}
